@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <form id="investmentForm">
+      <label for="companyName">A. What is your company name?</label>
+      <input type="text" id="companyName" placeholder="Start typing here…" required>
+      
+      <label for="laborHours">B. What is your weekly labor hours?</label>
+      <input type="number" id="laborHours" placeholder="Enter a number here…" required>
+      
+      <label for="hourlyWage">C. What is your hourly wage?</label>
+      <input type="number" id="hourlyWage" placeholder="Enter a number here…" required>
+      
+      <label for="solutionType">D. What type of solution are you looking for?</label>
+      <select id="solutionType" required>
+        <option value="1">Small Pick Assist AMR</option>
+        <option value="2">Large Pick Assist AMR</option>
+        <option value="3">Bot on Top Cube ASRS</option>
+      </select>
+      
+      <button type="button" onclick="calculateInvestment()">SUBMIT</button>
+    </form>
+    
+    <div class="results">
+      <p>Thank you <span id="companyOutput"></span>!</p>
+      <p>Your labor cost is: <span id="laborCostOutput"></span></p>
+      <p>Your rate of investment is: <span id="investmentRateOutput"></span></p>
+      <details>
+        <summary>How did we calculate this?</summary>
+        <p id="calculationDetails"></p>
+      </details>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
