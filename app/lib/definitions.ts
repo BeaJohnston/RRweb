@@ -9,6 +9,14 @@ export type User = {
   password: string;
 };
 
+export type information1 = {
+   companyName: string;
+   laborHours:  float;
+   hourlyWage: float;
+   solutionType: int;
+   };
+      
+
 export type Customer = {
   id: string;
   name: string;
