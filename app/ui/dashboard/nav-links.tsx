@@ -12,13 +12,10 @@ import clsx from 'clsx';
 // Links to display in the side navigation
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
-  {
-    name: 'Invoices',
-    href: '/dashboard/invoices',
-    icon: DocumentDuplicateIcon,
-  },
+  { name: 'Invoices', href: '/dashboard/invoices', icon: DocumentDuplicateIcon },
   { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
   { name: 'Test', href: '/dashboard/test', icon: UserGroupIcon },
+  { name: 'Shifts', href: '/dashboard/shifts', icon: UserGroupIcon }, // Corrected path
 ];
 
 export default function NavLinks() {
