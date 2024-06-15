@@ -1,6 +1,7 @@
 "use client"; // Ensure the component is a Client Component
 
 import { useState } from 'react';
+import styles from './styles.module.css';
 
 export default function Page() {
   const [companyName, setCompanyName] = useState('');
@@ -28,14 +29,10 @@ export default function Page() {
     }
 
     const selectedSolution = solutions[parseInt(solutionType) - 1];
-    
-    // Calculate labor hours saved based on the efficiency improvement of the selected solution
     const laborHoursSavedPerWeek = laborHoursNumber * selectedSolution.efficiency; 
     const annualLaborHoursSaved = laborHoursSavedPerWeek * 52;
     const annualLaborCostSavings = annualLaborHoursSaved * hourlyWageNumber;
     const capitalExpenditure = selectedSolution.cost + selectedSolution.maintenance;
-    
-    // Payback time calculation with correct formula
     const paybackTime = capitalExpenditure / (annualLaborCostSavings - selectedSolution.maintenance);
 
     setLaborCost(annualLaborCostSavings);
@@ -43,16 +40,19 @@ export default function Page() {
     setPaybackTime(paybackTime);
 
     setDetails(
-      `Cost of labor: $${annualLaborCostSavings.toLocaleString()}\n` +
-      `Capital Expenditure: $${capitalExpenditure.toLocaleString()}\n` +
-      `Payback Time: ${paybackTime.toFixed(2)} years`
+      `Cost of labor: $${annualLaborCostSavings.toLocaleString()}\n\n` +
+      `Capital Expenditure: $${capitalExpenditure.toLocaleString()}\n\n` +
+      `Payback Time: ${paybackTime.toFixed(2)} years\n\n` +
+      `Labor Hours Saved Per Week: ${laborHoursSavedPerWeek.toFixed(2)} hours\n\n` +
+      `Annual Labor Hours Saved: ${annualLaborHoursSaved.toLocaleString()} hours\n\n` +
+      `Annual Labor Cost Savings: $${annualLaborCostSavings.toLocaleString()}`
     );
   };
 
   return (
-    <div style={{ maxWidth: '500px', margin: '0 auto', padding: '20px', border: '1px solid #ccc', borderRadius: '10px' }}>
+    <div className={styles.container}>
       <form onSubmit={(e) => { e.preventDefault(); calculateInvestment(); }}>
-        <div style={{ marginBottom: '10px' }}>
+        <div className={styles.formGroup}>
           <label htmlFor="companyName">A. What is your company name?</label>
           <input
             type="text"
@@ -61,11 +61,11 @@ export default function Page() {
             onChange={(e) => setCompanyName(e.target.value)}
             placeholder="Start typing here…"
             required
-            style={{ width: '100%', padding: '8px', margin: '5px 0' }}
+            className={styles.inputField}
           />
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
+        <div className={styles.formGroup}>
           <label htmlFor="laborHours">B. What is your weekly labor hours?</label>
           <input
             type="number"
@@ -74,11 +74,11 @@ export default function Page() {
             onChange={(e) => setLaborHours(e.target.value)}
             placeholder="Enter a number here…"
             required
-            style={{ width: '100%', padding: '8px', margin: '5px 0' }}
+            className={styles.inputField}
           />
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
+        <div className={styles.formGroup}>
           <label htmlFor="hourlyWage">C. What is your hourly wage?</label>
           <input
             type="number"
@@ -87,17 +87,17 @@ export default function Page() {
             onChange={(e) => setHourlyWage(e.target.value)}
             placeholder="Enter a number here…"
             required
-            style={{ width: '100%', padding: '8px', margin: '5px 0' }}
+            className={styles.inputField}
           />
         </div>
 
-        <div style={{ marginBottom: '10px' }}>
+        <div className={styles.formGroup}>
           <label htmlFor="solutionType">D. What type of solution are you looking for?</label>
           <select
             id="solutionType"
             value={solutionType}
             onChange={(e) => setSolutionType(e.target.value)}
-            style={{ width: '100%', padding: '8px', margin: '5px 0' }}
+            className={styles.selectField}
           >
             {solutions.map((solution, index) => (
               <option key={index} value={index + 1}>{solution.name}</option>
@@ -105,20 +105,20 @@ export default function Page() {
           </select>
         </div>
 
-        <button type="submit" style={{ width: '100%', padding: '10px', backgroundColor: '#4CAF50', color: 'white', border: 'none', borderRadius: '5px' }}>
+        <button type="submit" className={styles.submitButton}>
           SUBMIT
         </button>
       </form>
 
       {laborCost !== null && capitalExpenditure !== null && paybackTime !== null && (
-        <div style={{ marginTop: '20px', padding: '20px', backgroundColor: '#e5e5e5', borderRadius: '10px' }}>
-          <p>Thank you {companyName}!</p>
+        <div className={styles.results}>
+          <p>Thank you, {companyName}!</p>
           <p>Cost of labor: ${laborCost.toLocaleString()}</p>
           <p>Capital Expenditure: ${capitalExpenditure.toLocaleString()}</p>
           <p>Payback Time: {paybackTime.toFixed(2)} years</p>
-          <details style={{ marginTop: '10px' }}>
+          <details className={styles.details}>
             <summary>How did we calculate this?</summary>
-            <p>{details}</p>
+            <p>{details.split('\n').map((line, index) => <span key={index}>{line}<br /></span>)}</p>
           </details>
         </div>
       )}
