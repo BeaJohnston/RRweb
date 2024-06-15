@@ -1,13 +1,18 @@
-import { GlobeAltIcon } from '@heroicons/react/24/outline';
-import { lusitana } from '@/app/ui/fonts';
+import Image from 'next/image';
+import React from 'react';
 
-export default function AcmeLogo() {
+const AcmeLogo: React.FC = () => {
   return (
-    <div
-      className={`${lusitana.className} flex flex-row items-center leading-none text-white`}
-    >
-      <GlobeAltIcon className="h-12 w-12 rotate-[15deg]" />
-      <p className="text-[44px]">Acme</p>
+    <div className="flex justify-center items-center h-full">
+      <Image
+        src="/Robot-Advisors-Logo-White-v1.png"
+        alt="Robot Advisory Group Logo"
+        width={320} // Adjust width if necessary
+        height={120} // Adjust height if necessary
+        objectFit="contain" // Ensures the image fits within the container without distortion
+      />
     </div>
   );
-}
+};
+
+export default AcmeLogo;
