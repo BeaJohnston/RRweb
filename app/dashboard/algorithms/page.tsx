@@ -1,19 +1,27 @@
 "use client"; // Ensure the component is a Client Component
 
-import { useState } from 'react';
-import styles from './styles.module.css';
+import { useState, FormEvent } from 'react';
+import styles from './styles.module.css'; // Ensure the path matches where your CSS file is
+
+// Define the type for the solutions array elements
+type Solution = {
+  name: string;
+  cost: number;
+  maintenance: number;
+  efficiency: number;
+};
 
 export default function Page() {
-  const [companyName, setCompanyName] = useState('');
-  const [laborHours, setLaborHours] = useState('');
-  const [hourlyWage, setHourlyWage] = useState('');
-  const [solutionType, setSolutionType] = useState('1');
+  const [companyName, setCompanyName] = useState<string>('');
+  const [laborHours, setLaborHours] = useState<string>('');
+  const [hourlyWage, setHourlyWage] = useState<string>('');
+  const [solutionType, setSolutionType] = useState<string>('1');
   const [laborCost, setLaborCost] = useState<number | null>(null);
   const [capitalExpenditure, setCapitalExpenditure] = useState<number | null>(null);
   const [paybackTime, setPaybackTime] = useState<number | null>(null);
   const [details, setDetails] = useState<string>('');
 
-  const solutions = [
+  const solutions: Solution[] = [
     { name: 'Small Pick Assist AMR', cost: 30000, maintenance: 6000, efficiency: 0.50 },
     { name: 'Large Pick Assist AMR', cost: 80000, maintenance: 7000, efficiency: 0.60 },
     { name: 'Bot on Top Cube ASRS', cost: 75000, maintenance: 17000, efficiency: 0.70 },
@@ -49,9 +57,14 @@ export default function Page() {
     );
   };
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    calculateInvestment();
+  };
+
   return (
     <div className={styles.container}>
-      <form onSubmit={(e) => { e.preventDefault(); calculateInvestment(); }}>
+      <form onSubmit={handleSubmit}>
         <div className={styles.formGroup}>
           <label htmlFor="companyName">A. What is your company name?</label>
           <input
@@ -100,7 +113,7 @@ export default function Page() {
             className={styles.selectField}
           >
             {solutions.map((solution, index) => (
-              <option key={index} value={index + 1}>{solution.name}</option>
+              <option key={index} value={(index + 1).toString()}>{solution.name}</option>
             ))}
           </select>
         </div>
