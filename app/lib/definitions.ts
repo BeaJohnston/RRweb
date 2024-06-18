@@ -10,12 +10,11 @@ export type User = {
 };
 
 export type information1 = {
-   companyName: string;
-   laborHours:  float;
-   hourlyWage: float;
-   solutionType: int;
-   };
-      
+  companyName: string;
+  laborHours: number;  // Changed from float to number
+  hourlyWage: number;  // Changed from float to number
+  solutionType: number; // Changed from int to number
+};
 
 export type Customer = {
   id: string;
