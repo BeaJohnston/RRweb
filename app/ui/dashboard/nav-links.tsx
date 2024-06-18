@@ -13,9 +13,11 @@ import clsx from 'clsx';
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
   { name: 'Invoices', href: '/dashboard/invoices', icon: DocumentDuplicateIcon },
-  { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
-  { name: 'Test', href: '/dashboard/test', icon: UserGroupIcon },
+  { name: 'Algorithms', href: '/dashboard/algorithms', icon: UserGroupIcon },
   { name: 'Shifts', href: '/dashboard/shifts', icon: UserGroupIcon }, // Corrected path
+  { name: 'Orders', href: '/dashboard/orders', icon: UserGroupIcon }, // Corrected path
+  { name: 'Items', href: '/dashboard/items', icon: UserGroupIcon },
+
 ];
 
 export default function NavLinks() {
