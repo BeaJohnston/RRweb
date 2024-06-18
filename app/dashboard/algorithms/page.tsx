@@ -12,6 +12,7 @@ type Solution = {
 };
 
 export default function Page() {
+  // UseState with proper TypeScript types
   const [companyName, setCompanyName] = useState<string>('');
   const [laborHours, setLaborHours] = useState<string>('');
   const [hourlyWage, setHourlyWage] = useState<string>('');
@@ -21,12 +22,14 @@ export default function Page() {
   const [paybackTime, setPaybackTime] = useState<number | null>(null);
   const [details, setDetails] = useState<string>('');
 
+  // Solutions array typed with Solution type
   const solutions: Solution[] = [
     { name: 'Small Pick Assist AMR', cost: 30000, maintenance: 6000, efficiency: 0.50 },
     { name: 'Large Pick Assist AMR', cost: 80000, maintenance: 7000, efficiency: 0.60 },
     { name: 'Bot on Top Cube ASRS', cost: 75000, maintenance: 17000, efficiency: 0.70 },
   ];
 
+  // Calculation function
   const calculateInvestment = () => {
     const laborHoursNumber = parseFloat(laborHours);
     const hourlyWageNumber = parseFloat(hourlyWage);
@@ -37,7 +40,7 @@ export default function Page() {
     }
 
     const selectedSolution = solutions[parseInt(solutionType) - 1];
-    const laborHoursSavedPerWeek = laborHoursNumber * selectedSolution.efficiency; 
+    const laborHoursSavedPerWeek = laborHoursNumber * selectedSolution.efficiency;
     const annualLaborHoursSaved = laborHoursSavedPerWeek * 52;
     const annualLaborCostSavings = annualLaborHoursSaved * hourlyWageNumber;
     const capitalExpenditure = selectedSolution.cost + selectedSolution.maintenance;
@@ -57,6 +60,7 @@ export default function Page() {
     );
   };
 
+  // Handle form submit with proper typing
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     calculateInvestment();
