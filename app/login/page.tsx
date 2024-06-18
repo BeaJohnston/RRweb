@@ -1,6 +1,5 @@
 import AcmeLogo from '@/app/ui/acme-logo';
 import LoginForm from '@/app/ui/login-form';
-import Link from 'next/link';
 
 export default function LoginPage() {
   return (
@@ -12,14 +11,6 @@ export default function LoginPage() {
           </div>
         </div>
         <LoginForm />
-        <div className="flex justify-between pt-4">
-          <Link href="/signup" className="text-blue-500 hover:underline">
-            Create Account
-          </Link>
-          <Link href="/forgot-password" className="text-blue-500 hover:underline">
-            Forgot Password?
-          </Link>
-        </div>
       </div>
     </main>
   );

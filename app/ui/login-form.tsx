@@ -105,7 +105,7 @@ export default function LoginForm() {
           )}
         </div>
         <div className="mt-4 flex justify-between text-sm">
-          <Link href="/app/login/signup" className="text-blue-500 hover:underline">
+          <Link href="/signup" className="text-blue-500 hover:underline">
             Create Account
           </Link>
           <button
