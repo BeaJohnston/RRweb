@@ -11,7 +11,6 @@ export default function SignupPage() {
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage('');
-
     if (password !== confirmPassword) {
       setErrorMessage('Passwords do not match');
       return;
@@ -30,11 +29,7 @@ export default function SignupPage() {
         alert('Signup successful');
       } else {
         const result = await response.json();
-        if (response.status === 409) {
-          setErrorMessage('User with this email already exists');
-        } else {
-          setErrorMessage(result.error || 'Signup failed. Please try again.');
-        }
+        setErrorMessage(result.error || 'Signup failed');
       }
     } catch (error) {
       console.error('Error in signup request:', error);
