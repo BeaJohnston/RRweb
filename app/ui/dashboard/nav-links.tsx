@@ -12,6 +12,8 @@ import clsx from 'clsx';
 // Links to display in the side navigation
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
+  { name: 'Profile', href: '/dashboard/profile', icon: UserGroupIcon },
+
   { name: 'Invoices', href: '/dashboard/invoices', icon: DocumentDuplicateIcon },
   { name: 'Algorithms', href: '/dashboard/algorithms', icon: UserGroupIcon },
   { name: 'Shifts', href: '/dashboard/shifts', icon: UserGroupIcon }, // Corrected path
