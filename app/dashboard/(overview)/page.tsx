@@ -69,7 +69,7 @@ export default function Page() {
               </div>
               <div className="p-6 bg-gray-200 rounded">
                 <h3 className="text-lg font-bold">Client Engagements</h3>
-                <p>Successful robotic automation projects don’t just need technology; they also need care paid to people, process and integration. Through our holistic approach, RA aims to help companies realize the expected benefits of their robot automation endeavors.</p>
+                <p>Successful robotic automation projects don&apos;t just need technology; they also need care paid to people, process and integration. Through our holistic approach, RA aims to help companies realize the expected benefits of their robot automation endeavors.</p>
               </div>
               <div className="p-6 bg-gray-200 rounded">
                 <h3 className="text-lg font-bold">Practice Principles</h3>
@@ -101,3 +101,4 @@ export default function Page() {
     </main>
   );
 }
+
