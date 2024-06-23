@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom number input styles */
 input[type='number'] {
   -moz-appearance: textfield;
   appearance: textfield;
@@ -15,4 +16,22 @@ input[type='number']::-webkit-inner-spin-button {
 input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+/* New styles to change background color */
+body {
+  background-color: #2f4f4f; /* Change this to the desired color code */
+  color: rgb(0, 0, 0); /* Optional: change text color for better contrast */
+}
+
+/* Optional: ensure full height coverage */
+html, body {
+  height: 100%;
+}
+
+/* Optional: add padding and margin reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
