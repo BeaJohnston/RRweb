@@ -65,7 +65,7 @@ export default function Page() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="p-6 bg-gray-200 rounded">
                 <h3 className="text-lg font-bold">Research & Reports</h3>
-                <p>Our methods include doing our own authentic, first-person research into the technology and providers. We create our own proprietary deep technology tools that create robust analysis. We do deep study of client's operations to provide personalized recommendations that fit our client’s business objectives and investment return needs.</p>
+                <p>Our methods include doing our own authentic, first-person research into the technology and providers. We create our own proprietary deep technology tools that create robust analysis. We do deep study of client&apos;s operations to provide personalized recommendations that fit our client&apos;s business objectives and investment return needs.</p>
               </div>
               <div className="p-6 bg-gray-200 rounded">
                 <h3 className="text-lg font-bold">Client Engagements</h3>
