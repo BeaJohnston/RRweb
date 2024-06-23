@@ -17,6 +17,7 @@ const links = [
   { name: 'Shifts', href: '/dashboard/shifts', icon: UserGroupIcon }, // Corrected path
   { name: 'Orders', href: '/dashboard/orders', icon: UserGroupIcon }, // Corrected path
   { name: 'Items', href: '/dashboard/items', icon: UserGroupIcon },
+  { name: 'Contact Us', href: '/dashboard/contact', icon: UserGroupIcon },
 
 ];
 
